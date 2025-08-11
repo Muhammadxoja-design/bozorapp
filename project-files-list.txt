@@ -1,0 +1,72 @@
+BizTracker Pro - Complete Project Files
+=====================================
+
+To recreate this project, you need these files:
+
+ROOT DIRECTORY:
+- package.json (dependencies)
+- vite.config.ts (Vite configuration)
+- tsconfig.json (TypeScript config)
+- tailwind.config.ts (Tailwind CSS config)
+- postcss.config.js
+- drizzle.config.ts (Database config)
+- components.json (shadcn/ui config)
+
+CLIENT DIRECTORY (client/):
+- index.html
+- src/main.tsx (React entry point)
+- src/App.tsx (Main app component)
+- src/index.css (Global styles with Uzbek text)
+
+PAGES (client/src/pages/):
+- dashboard.tsx (Main dashboard with stock adjuster)
+- add-product.tsx (Add product form - Uzbek interface)
+- record-sale.tsx (Record sales - Uzbek interface)
+- reports.tsx (Reports page)
+- not-found.tsx
+
+COMPONENTS (client/src/components/):
+- quick-stock-adjuster.tsx (NEW: Stock management)
+- inventory-management.tsx (Inventory tracking)
+- sales-analytics.tsx (Sales analytics)
+- financial-dashboard.tsx (Financial dashboard)
+- business-insights.tsx (Business insights)
+- advanced-reporting.tsx (Advanced reports)
+- theme-provider.tsx (Dark/light theme)
+- bottom-navigation.tsx (Mobile navigation)
+- floating-action-button.tsx
+- ui/ (50+ shadcn/ui components)
+
+HOOKS (client/src/hooks/):
+- use-theme.tsx
+- use-toast.ts
+- use-mobile.tsx
+
+UTILS (client/src/lib/):
+- utils.ts
+- queryClient.ts
+
+SERVER DIRECTORY (server/):
+- index.ts (Express server)
+- routes.ts (API routes with stock update)
+- storage.ts (In-memory storage with updateProductStock)
+- vite.ts (Vite integration)
+
+SHARED:
+- schema.ts (Database schemas)
+
+KEY FEATURES:
+✓ 20,706+ lines of code
+✓ Uzbek language interface ("1 kg uchun narx")
+✓ Quick stock adjuster (+1kg, +5kg, +10kg buttons)
+✓ Dark/Light mode
+✓ Mobile-optimized design
+✓ PostgreSQL ready with Drizzle ORM
+✓ Advanced analytics and reporting
+✓ Inventory management
+✓ Sales tracking with profit calculations
+
+To setup:
+1. npm install
+2. npm run dev
+3. Open http://localhost:5000
