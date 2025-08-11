@@ -82,7 +82,7 @@ export default function AddProduct() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold flex items-center">
               <PlusCircle className="text-blue-500 mr-2" size={20} />
-              Add New Product
+              Yangi mahsulot qo'shish
             </h3>
             <Link href="/">
               <Button variant="ghost" size="sm" data-testid="button-close">
@@ -98,11 +98,11 @@ export default function AddProduct() {
                 name="name"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Product Name</FormLabel>
+                    <FormLabel>Mahsulot nomi</FormLabel>
                     <FormControl>
                       <Input
                         data-testid="input-product-name"
-                        placeholder="e.g., Mung Beans, Lentils..."
+                        placeholder="Masalan: Mosh, Guruch, No'xat..."
                         {...field}
                       />
                     </FormControl>
@@ -117,7 +117,7 @@ export default function AddProduct() {
                   name="purchasePrice"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Purchase Price (per kg)</FormLabel>
+                      <FormLabel>Olingan narxi (1 kg uchun)</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <span className="absolute left-3 top-3 text-gray-500">$</span>
@@ -141,7 +141,7 @@ export default function AddProduct() {
                   name="sellingPrice"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Selling Price (per kg)</FormLabel>
+                      <FormLabel>Sotish narxi (1 kg uchun)</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <span className="absolute left-3 top-3 text-gray-500">$</span>
@@ -166,7 +166,7 @@ export default function AddProduct() {
                 name="stock"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Initial Stock (kg)</FormLabel>
+                    <FormLabel>Dastlabki miqdor (kg)</FormLabel>
                     <FormControl>
                       <Input
                         data-testid="input-initial-stock"
@@ -184,7 +184,7 @@ export default function AddProduct() {
               {/* Profit Preview */}
               <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-green-800 dark:text-green-300 font-medium">Expected Profit per kg:</span>
+                  <span className="text-green-800 dark:text-green-300 font-medium">1 kg dan kutilayotgan foyda:</span>
                   <span className="text-green-600 dark:text-green-400 font-bold text-lg" data-testid="text-profit-preview">
                     ${profitPreview()}
                   </span>
@@ -202,7 +202,7 @@ export default function AddProduct() {
                 ) : (
                   <>
                     <PlusCircle className="mr-2" size={16} />
-                    Add Product
+                    Mahsulot qo'shish
                   </>
                 )}
               </Button>

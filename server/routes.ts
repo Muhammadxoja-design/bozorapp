@@ -83,6 +83,23 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // Product stock update route
+  app.patch("/api/products/:id/stock", async (req, res) => {
+    try {
+      const { id } = req.params;
+      const { newStock } = req.body;
+      
+      if (!newStock || isNaN(parseFloat(newStock))) {
+        return res.status(400).json({ message: "Valid stock amount is required" });
+      }
+      
+      await storage.updateProductStock(id, newStock);
+      res.json({ message: "Stock updated successfully" });
+    } catch (error) {
+      res.status(500).json({ message: "Failed to update stock" });
+    }
+  });
+
   // Daily report routes
   app.get("/api/reports/daily/:date", async (req, res) => {
     try {

@@ -125,7 +125,7 @@ export default function RecordSale() {
           <div className="flex items-center justify-between mb-6">
             <h3 className="text-lg font-semibold flex items-center">
               <ShoppingCart className="text-green-500 mr-2" size={20} />
-              Record Sale
+              Sotish
             </h3>
             <Link href="/">
               <Button variant="ghost" size="sm" data-testid="button-close">
@@ -141,11 +141,11 @@ export default function RecordSale() {
                 name="productId"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Select Product</FormLabel>
+                    <FormLabel>Mahsulotni tanlang</FormLabel>
                     <Select onValueChange={field.onChange} defaultValue={field.value}>
                       <FormControl>
                         <SelectTrigger data-testid="select-product">
-                          <SelectValue placeholder="Choose a product..." />
+                          <SelectValue placeholder="Mahsulotni tanlang..." />
                         </SelectTrigger>
                       </FormControl>
                       <SelectContent>
@@ -167,7 +167,7 @@ export default function RecordSale() {
                   name="quantity"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Quantity Sold (kg)</FormLabel>
+                      <FormLabel>Sotilgan miqdor (kg)</FormLabel>
                       <FormControl>
                         <Input
                           data-testid="input-quantity"
@@ -187,7 +187,7 @@ export default function RecordSale() {
                   name="pricePerKg"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Sale Price (per kg)</FormLabel>
+                      <FormLabel>Sotish narxi (1 kg uchun)</FormLabel>
                       <FormControl>
                         <div className="relative">
                           <span className="absolute left-3 top-3 text-gray-500">$</span>
@@ -210,19 +210,19 @@ export default function RecordSale() {
               {/* Sale Summary */}
               <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-blue-800 dark:text-blue-300">Total Sale Amount:</span>
+                  <span className="text-blue-800 dark:text-blue-300">Jami sotish narxi:</span>
                   <span className="text-blue-600 dark:text-blue-400 font-bold" data-testid="text-total-amount">
                     ${totalAmount.toFixed(2)}
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-blue-800 dark:text-blue-300">Cost:</span>
+                  <span className="text-blue-800 dark:text-blue-300">Xarajat:</span>
                   <span className="text-blue-600 dark:text-blue-400" data-testid="text-total-cost">
                     ${totalCost.toFixed(2)}
                   </span>
                 </div>
                 <div className="border-t border-blue-200 dark:border-blue-800 pt-2 flex justify-between items-center">
-                  <span className="text-blue-800 dark:text-blue-300 font-semibold">Profit:</span>
+                  <span className="text-blue-800 dark:text-blue-300 font-semibold">Sof foyda:</span>
                   <span className="text-profit font-bold text-lg" data-testid="text-sale-profit">
                     ${profit.toFixed(2)}
                   </span>
@@ -236,11 +236,11 @@ export default function RecordSale() {
                 disabled={recordSaleMutation.isPending}
               >
                 {recordSaleMutation.isPending ? (
-                  "Recording Sale..."
+                  "Yozilmoqda..."
                 ) : (
                   <>
                     <ShoppingCart className="mr-2" size={16} />
-                    Record Sale
+                    Sotishni yozish
                   </>
                 )}
               </Button>

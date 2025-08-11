@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import { TrendingUp, Package, Calendar, Sprout } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Skeleton } from "@/components/ui/skeleton";
+import { QuickStockAdjuster } from "@/components/quick-stock-adjuster";
 import type { DashboardStats, Product } from "@shared/schema";
 
 export default function Dashboard() {
@@ -74,51 +75,29 @@ export default function Dashboard() {
         </Card>
       </div>
 
-      {/* Recent Products */}
+      {/* Recent Products with Quick Stock Adjuster */}
       <Card>
         <div className="p-4 border-b dark:border-gray-700">
           <h3 className="text-lg font-semibold flex items-center">
             <Sprout className="text-green-500 mr-2" size={20} />
-            Recent Products
+            Mahsulotlar va Stock
           </h3>
         </div>
-        <div className="divide-y dark:divide-gray-700">
+        <div className="p-4 space-y-4">
           {productsLoading ? (
             <ProductListSkeleton />
           ) : recentProducts.length > 0 ? (
-            recentProducts.map((product) => {
-              const profit = (parseFloat(product.sellingPrice) - parseFloat(product.purchasePrice)).toFixed(2);
-              const profitColor = parseFloat(profit) > 0 ? "text-profit" : "text-loss";
-              
-              return (
-                <div key={product.id} className="p-4 flex justify-between items-center" data-testid={`product-item-${product.id}`}>
-                  <div className="flex items-center space-x-3">
-                    <div className="w-10 h-10 bg-green-100 dark:bg-green-900/30 rounded-lg flex items-center justify-center">
-                      <Sprout className="text-green-600 dark:text-green-400" size={16} />
-                    </div>
-                    <div>
-                      <p className="font-medium" data-testid={`text-product-name-${product.id}`}>{product.name}</p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400" data-testid={`text-product-stock-${product.id}`}>
-                        {product.stock}kg in stock
-                      </p>
-                    </div>
-                  </div>
-                  <div className="text-right">
-                    <p className="font-semibold" data-testid={`text-product-price-${product.id}`}>
-                      ${product.sellingPrice}/kg
-                    </p>
-                    <p className={`text-sm ${profitColor}`} data-testid={`text-product-profit-${product.id}`}>
-                      {parseFloat(profit) >= 0 ? '+' : ''}${profit} profit
-                    </p>
-                  </div>
-                </div>
-              );
-            })
+            recentProducts.map((product) => (
+              <QuickStockAdjuster 
+                key={product.id} 
+                product={product}
+              />
+            ))
           ) : (
             <div className="p-8 text-center text-gray-500 dark:text-gray-400">
               <Package className="mx-auto mb-2" size={48} />
-              <p>No products added yet</p>
-              <p className="text-sm">Add your first product to get started</p>
+              <p>Hali mahsulot qo'shilmagan</p>
+              <p className="text-sm">Birinchi mahsulotingizni qo'shing</p>
             </div>
           )}
         </div>
