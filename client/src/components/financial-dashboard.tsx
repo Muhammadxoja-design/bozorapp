@@ -345,7 +345,7 @@ export function FinancialDashboard({ sales, products, dashboardStats, isLoading 
               <div>
                 <p className="text-green-100 text-sm">Total Revenue</p>
                 <p className="text-2xl font-bold" data-testid="text-financial-revenue">
-                  ${financialMetrics.totalRevenue.toFixed(2)}
+                 {financialMetrics.totalRevenue.toFixed(2)} so'm
                 </p>
                 <div className="flex items-center text-green-100 text-xs">
                   {getGrowthIcon(financialMetrics.revenueGrowth)}
@@ -363,7 +363,7 @@ export function FinancialDashboard({ sales, products, dashboardStats, isLoading 
               <div>
                 <p className="text-blue-100 text-sm">Net Profit</p>
                 <p className="text-2xl font-bold" data-testid="text-financial-profit">
-                  ${financialMetrics.totalProfit.toFixed(2)}
+                  {financialMetrics.totalProfit.toFixed(2)} so'm
                 </p>
                 <div className="flex items-center text-blue-100 text-xs">
                   {getGrowthIcon(financialMetrics.profitGrowth)}
@@ -384,7 +384,7 @@ export function FinancialDashboard({ sales, products, dashboardStats, isLoading 
                   {financialMetrics.profitMargin.toFixed(1)}%
                 </p>
                 <p className="text-purple-100 text-xs">
-                  Cost: ${financialMetrics.totalCost.toFixed(2)}
+                  Cost: {financialMetrics.totalCost.toFixed(2)} so'm
                 </p>
               </div>
               <Calculator size={32} className="text-purple-200" />
@@ -398,7 +398,7 @@ export function FinancialDashboard({ sales, products, dashboardStats, isLoading 
               <div>
                 <p className="text-amber-100 text-sm">Inventory Value</p>
                 <p className="text-2xl font-bold" data-testid="text-inventory-value">
-                  ${financialMetrics.inventoryValue.toFixed(2)}
+                  {financialMetrics.inventoryValue.toFixed(2)} so'm
                 </p>
                 <p className="text-amber-100 text-xs">
                   Turnover: {financialMetrics.inventoryTurnover.toFixed(1)}x
@@ -425,10 +425,10 @@ export function FinancialDashboard({ sales, products, dashboardStats, isLoading 
           <Progress value={getTargetProgress()} className="h-3 mb-2" />
           <div className="flex justify-between text-sm text-gray-600 dark:text-gray-400">
             <span>${financialMetrics.totalRevenue.toFixed(2)} achieved</span>
-            <span>Target: ${timeframe === "today" ? financialMetrics.dailyTarget : 
+            <span>Target: {timeframe === "today" ? financialMetrics.dailyTarget : 
                       timeframe === "week" ? financialMetrics.weeklyTarget : 
                       timeframe === "month" ? financialMetrics.monthlyTarget : 
-                      financialMetrics.monthlyTarget * 3}</span>
+                      financialMetrics.monthlyTarget * 3} so'm</span>
           </div>
         </CardContent>
       </Card>
@@ -561,7 +561,7 @@ export function FinancialDashboard({ sales, products, dashboardStats, isLoading 
                 </div>
                 <div className="flex items-center space-x-2">
                   <Coins className="text-purple-500" size={16} />
-                  <span className="text-sm">Cash flow: ${financialMetrics.cashFlow.toFixed(2)}</span>
+                  <span className="text-sm">Cash flow: {financialMetrics.cashFlow.toFixed(2)} so'm</span>
                 </div>
               </CardContent>
             </Card>

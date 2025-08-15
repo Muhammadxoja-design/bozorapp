@@ -279,7 +279,7 @@ export function BusinessInsights({ sales, products, dashboardStats, isLoading }:
         id: "peak-sales-time",
         type: "info",
         title: "Peak Sales Time Identified",
-        description: `Most sales occur around ${peakHour[0]}:00, generating $${peakHour[1].toFixed(2)} in revenue.`,
+        description: `Most sales occur around ${peakHour[0]}:00, generating ${peakHour[1].toFixed(2)} so'm in revenue.`,
         impact: "low",
         actionable: true,
         category: "sales",
@@ -607,7 +607,7 @@ export function BusinessInsights({ sales, products, dashboardStats, isLoading }:
             <div className="text-sm text-gray-600 dark:text-gray-400">
               <span className="font-medium">3-day forecast:</span>
               {trendAnalysis.forecast.map((value, index) => (
-                <span key={index} className="ml-2">${value.toFixed(2)}</span>
+                <span key={index} className="ml-2">{value.toFixed(2)}so'm</span>
               ))}
             </div>
           )}

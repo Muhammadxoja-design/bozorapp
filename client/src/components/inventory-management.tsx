@@ -365,13 +365,13 @@ export function InventoryManagement({ products, isLoading }: InventoryManagement
                           <div>
                             <p className="text-gray-600 dark:text-gray-400">Selling Price</p>
                             <p className="font-medium" data-testid={`text-selling-price-${product.id}`}>
-                              ${product.sellingPrice}/kg
+                              {product.sellingPrice} so'm/kg
                             </p>
                           </div>
                           <div>
                             <p className="text-gray-600 dark:text-gray-400">Profit/kg</p>
                             <p className={`font-medium ${profit >= 0 ? 'text-profit' : 'text-loss'}`} data-testid={`text-profit-${product.id}`}>
-                              ${profit.toFixed(2)}
+                              {profit.toFixed(2)} so'm
                             </p>
                           </div>
                           <div>

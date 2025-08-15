@@ -302,7 +302,7 @@ export function SalesAnalytics({ sales, products, weeklyData, dashboardStats, is
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Revenue</p>
                 <p className="text-2xl font-bold text-blue-600 dark:text-blue-400" data-testid="text-analytics-revenue">
-                  ${salesMetrics.totalRevenue.toFixed(2)}
+                 {salesMetrics.totalRevenue.toFixed(2)} so'm
                 </p>
                 <p className="text-xs text-gray-500 flex items-center">
                   {salesMetrics.salesTrend === "up" ? (
@@ -324,7 +324,7 @@ export function SalesAnalytics({ sales, products, weeklyData, dashboardStats, is
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Profit</p>
                 <p className="text-2xl font-bold text-profit" data-testid="text-analytics-profit">
-                  ${salesMetrics.totalProfit.toFixed(2)}
+                  {salesMetrics.totalProfit.toFixed(2)} so'm
                 </p>
                 <p className="text-xs text-gray-500">
                   {salesMetrics.profitMargin.toFixed(1)}% margin
@@ -344,7 +344,7 @@ export function SalesAnalytics({ sales, products, weeklyData, dashboardStats, is
                   {salesMetrics.totalTransactions}
                 </p>
                 <p className="text-xs text-gray-500">
-                  Avg: ${salesMetrics.averageOrderValue.toFixed(2)}
+                  Avg: {salesMetrics.averageOrderValue.toFixed(2)} so'm
                 </p>
               </div>
               <Package className="text-amber-500" size={24} />
@@ -461,7 +461,7 @@ export function SalesAnalytics({ sales, products, weeklyData, dashboardStats, is
                     </div>
                     <div className="text-right">
                       <p className="font-bold text-profit" data-testid={`text-product-performance-revenue-${product.productId}`}>
-                        ${product.totalRevenue.toFixed(2)}
+                        {product.totalRevenue.toFixed(2)} so'm
                       </p>
                       <p className="text-sm text-gray-500">
                         {product.profitMargin.toFixed(1)}% margin
@@ -521,13 +521,13 @@ export function SalesAnalytics({ sales, products, weeklyData, dashboardStats, is
                   <div>
                     <p className="text-gray-600 dark:text-gray-400">Revenue</p>
                     <p className="font-medium" data-testid="text-best-performer-revenue">
-                      ${salesMetrics.topProduct?.revenue.toFixed(2) || "0.00"}
+                      {salesMetrics.topProduct?.revenue.toFixed(2) || "0.00"} so'm
                     </p>
                   </div>
                   <div>
                     <p className="text-gray-600 dark:text-gray-400">Avg Order Value</p>
                     <p className="font-medium" data-testid="text-avg-order-value">
-                      ${salesMetrics.averageOrderValue.toFixed(2)}
+                      {salesMetrics.averageOrderValue.toFixed(2)} so'm
                     </p>
                   </div>
                   <div>
@@ -542,7 +542,7 @@ export function SalesAnalytics({ sales, products, weeklyData, dashboardStats, is
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-sm font-medium">Daily Target Progress</span>
                     <span className="text-sm text-gray-500">
-                      ${salesMetrics.totalRevenue.toFixed(2)} / ${salesMetrics.dailyTarget.toFixed(2)}
+                      {salesMetrics.totalRevenue.toFixed(2)} so'm / {salesMetrics.dailyTarget.toFixed(2)} so'm
                     </span>
                   </div>
                   <Progress value={salesMetrics.targetProgress} className="h-2" />

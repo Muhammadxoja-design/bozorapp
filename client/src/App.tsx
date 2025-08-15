@@ -23,7 +23,7 @@ function AppHeader() {
     <header className="bg-blue-600 dark:bg-blue-700 text-white p-4 flex justify-between items-center sticky top-0 z-50">
       <div className="flex items-center space-x-3">
         <ChartLine size={24} />
-        <h1 className="text-lg font-semibold">BizTracker Pro</h1>
+        <h1 className="text-lg font-semibold">Muhammadrizo's app</h1>
       </div>
       <div className="flex items-center space-x-3">
         <Button

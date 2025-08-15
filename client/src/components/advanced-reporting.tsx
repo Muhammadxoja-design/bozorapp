@@ -882,13 +882,13 @@ export function AdvancedReporting({ sales, products, dashboardStats, isLoading }
                   <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div className="text-center">
                       <p className="text-2xl font-bold text-blue-600">
-                        ${previewData.data.summary.totalRevenue.toFixed(2)}
+                        {previewData.data.summary.totalRevenue.toFixed(2)} so'm
                       </p>
                       <p className="text-sm text-gray-600">Total Revenue</p>
                     </div>
                     <div className="text-center">
                       <p className="text-2xl font-bold text-green-600">
-                        ${previewData.data.summary.totalProfit.toFixed(2)}
+                        {previewData.data.summary.totalProfit.toFixed(2)} so'm
                       </p>
                       <p className="text-sm text-gray-600">Total Profit</p>
                     </div>
