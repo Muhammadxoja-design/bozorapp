@@ -1,0 +1,5 @@
+server/
+shared/
+attached_assets/
+*.md
+*.ts
