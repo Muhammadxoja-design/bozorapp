@@ -141,13 +141,13 @@ export default function Reports() {
           <div className="grid grid-cols-2 gap-4">
             <div className="text-center p-3 bg-green-50 dark:bg-green-900/20 rounded-lg">
               <p className="text-2xl font-bold text-profit" data-testid="text-weekly-total-profit">
-                ${weeklyTotals.totalProfit}
+                {weeklyTotals.totalProfit} so'm
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">Total Profit</p>
             </div>
             <div className="text-center p-3 bg-blue-50 dark:bg-blue-900/20 rounded-lg">
               <p className="text-2xl font-bold text-blue-600 dark:text-blue-400" data-testid="text-weekly-total-sales">
-                ${weeklyTotals.totalSales}
+                {weeklyTotals.totalSales} so'm
               </p>
               <p className="text-sm text-gray-600 dark:text-gray-400">Total Sales</p>
             </div>
@@ -163,7 +163,7 @@ export default function Reports() {
                 data-testid={`weekly-day-${index}`}
               >
                 <span className="text-sm">{day.day}</span>
-                <span className="text-sm font-semibold text-profit">${day.profit}</span>
+                <span className="text-sm font-semibold text-profit">{day.profit} so'm</span>
               </div>
             )) || (
               <div className="text-center text-gray-500 dark:text-gray-400 py-4">

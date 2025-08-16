@@ -104,9 +104,9 @@ export function QuickStockAdjuster({ product, onUpdate }: QuickStockAdjusterProp
 
   const getStockStatus = () => {
     const stock = parseFloat(product.stock);
-    if (stock <= 0) return { color: "bg-red-500", text: "Tugagan", variant: "destructive" as const };
-    if (stock < 5) return { color: "bg-orange-500", text: "Kam", variant: "secondary" as const };
-    if (stock < 20) return { color: "bg-yellow-500", text: "O'rtacha", variant: "outline" as const };
+    if (stock <= 0) return { color: "bg-red-600 text-white", text: "Tugagan", variant: "destructive" as const };
+    if (stock < 5) return { color: "bg-orange-950 text-white", text: "Kam", variant: "secondary" as const };
+    if (stock < 20) return { color: "bg-yellow-700 text-white", text: "O'rtacha", variant: "outline" as const };
     return { color: "bg-green-500", text: "Yetarli", variant: "default" as const };
   };
 
@@ -124,7 +124,7 @@ export function QuickStockAdjuster({ product, onUpdate }: QuickStockAdjusterProp
               <span className="text-2xl font-bold" data-testid={`stock-amount-${product.id}`}>
                 {product.stock} kg
               </span>
-              <Badge variant={stockStatus.variant}>
+              <Badge className={stockStatus.color}>
                 {stockStatus.text}
               </Badge>
             </div>
@@ -139,35 +139,35 @@ export function QuickStockAdjuster({ product, onUpdate }: QuickStockAdjusterProp
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => handleQuickAdjustment("add", 1)}
-                disabled={updateStockMutation.isPending}
-                data-testid={`quick-add-1-${product.id}`}
-                className="text-green-600 border-green-200 hover:bg-green-50"
-              >
-                <Plus size={14} className="mr-1" />
-                +1kg
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => handleQuickAdjustment("add", 5)}
-                disabled={updateStockMutation.isPending}
-                data-testid={`quick-add-5-${product.id}`}
-                className="text-green-600 border-green-200 hover:bg-green-50"
-              >
-                <Plus size={14} className="mr-1" />
-                +5kg
-              </Button>
-              <Button
-                variant="outline"
-                size="sm"
                 onClick={() => handleQuickAdjustment("add", 10)}
                 disabled={updateStockMutation.isPending}
-                data-testid={`quick-add-10-${product.id}`}
-                className="text-green-600 border-green-200 hover:bg-green-50"
+                data-testid={`quick-add-1-${product.id}`}
+                className="text-green-600 border-green-200 hover:bg-green-500"
               >
-                <Plus size={14} className="mr-1" />
-                +10kg
+                <Plus size={14} />
+                10 kg
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handleQuickAdjustment("add", 15)}
+                disabled={updateStockMutation.isPending}
+                data-testid={`quick-add-5-${product.id}`}
+                className="text-green-600 border-green-200 hover:bg-green-500"
+              >
+                <Plus size={14} />
+                15 kg
+              </Button>
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => handleQuickAdjustment("add", 20)}
+                disabled={updateStockMutation.isPending}
+                data-testid={`quick-add-10-${product.id}`}
+                className="text-green-600 border-green-200 hover:bg-green-500"
+              >
+                <Plus size={14} />
+                20 kg
               </Button>
             </div>
 
@@ -175,24 +175,24 @@ export function QuickStockAdjuster({ product, onUpdate }: QuickStockAdjusterProp
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => handleQuickAdjustment("remove", 1)}
+                onClick={() => handleQuickAdjustment("remove", 10)}
                 disabled={updateStockMutation.isPending || parseFloat(product.stock) < 1}
                 data-testid={`quick-remove-1-${product.id}`}
-                className="text-red-600 border-red-200 hover:bg-red-50"
+                className="text-red-600 border-red-200 hover:bg-red-700"
               >
-                <Minus size={14} className="mr-1" />
-                -1kg
+                <Minus size={14} />
+                10 kg
               </Button>
               <Button
                 variant="outline"
                 size="sm"
-                onClick={() => handleQuickAdjustment("remove", 5)}
+                onClick={() => handleQuickAdjustment("remove", 15)}
                 disabled={updateStockMutation.isPending || parseFloat(product.stock) < 5}
                 data-testid={`quick-remove-5-${product.id}`}
-                className="text-red-600 border-red-200 hover:bg-red-50"
+                className="text-red-600 border-red-200 hover:bg-red-700"
               >
                 <Minus size={14} className="mr-1" />
-                -5kg
+                15 kg
               </Button>
               <Button
                 variant="outline"

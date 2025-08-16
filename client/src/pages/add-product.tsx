@@ -119,16 +119,15 @@ export default function AddProduct() {
                     <FormItem>
                       <FormLabel>Olingan narxi (1 kg uchun)</FormLabel>
                       <FormControl>
-                        <div className="relative">
-                          <span className="absolute left-3 top-3 text-gray-500">$</span>
+                        <div className="relative flex row ">
                           <Input
                             data-testid="input-purchase-price"
                             type="number"
                             step="0.01"
                             placeholder="0.00"
-                            className="pl-8"
                             {...field}
                           />
+                          <span className="absolute left-2/3 top-2 text-gray-500">so'm</span>
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -144,15 +143,14 @@ export default function AddProduct() {
                       <FormLabel>Sotish narxi (1 kg uchun)</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <span className="absolute left-3 top-3 text-gray-500">$</span>
                           <Input
                             data-testid="input-selling-price"
                             type="number"
                             step="0.01"
                             placeholder="0.00"
-                            className="pl-8"
                             {...field}
                           />
+                          <span className="absolute left-2/3 top-2 text-gray-500">so'm</span>
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -184,9 +182,9 @@ export default function AddProduct() {
               {/* Profit Preview */}
               <div className="bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg p-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-green-800 dark:text-green-300 font-medium">1 kg dan kutilayotgan foyda:</span>
+                  <span className="text-green-800 dark:text-green-300 font-medium">Foyda (1 kg):</span>
                   <span className="text-green-600 dark:text-green-400 font-bold text-lg" data-testid="text-profit-preview">
-                    ${profitPreview()}
+                    {profitPreview()} so'm
                   </span>
                 </div>
               </div>

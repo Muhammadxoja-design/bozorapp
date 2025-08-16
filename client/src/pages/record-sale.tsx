@@ -8,9 +8,22 @@ import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import type { Product } from "@shared/schema";
@@ -27,7 +40,7 @@ export default function RecordSale() {
   const [, setLocation] = useLocation();
   const { toast } = useToast();
   const queryClient = useQueryClient();
-  
+
   const { data: products } = useQuery<Product[]>({
     queryKey: ["/api/products"],
   });
@@ -49,7 +62,7 @@ export default function RecordSale() {
   // Auto-fill selling price when product is selected
   useEffect(() => {
     if (productId && products) {
-      const selectedProduct = products.find(p => p.id === productId);
+      const selectedProduct = products.find((p) => p.id === productId);
       if (selectedProduct) {
         setValue("pricePerKg", selectedProduct.sellingPrice);
       }
@@ -57,9 +70,12 @@ export default function RecordSale() {
   }, [productId, products, setValue]);
 
   // Calculate sale summary
-  const selectedProduct = products?.find(p => p.id === productId);
-  const totalAmount = (parseFloat(quantity) || 0) * (parseFloat(pricePerKg) || 0);
-  const totalCost = selectedProduct ? (parseFloat(quantity) || 0) * parseFloat(selectedProduct.purchasePrice) : 0;
+  const selectedProduct = products?.find((p) => p.id === productId);
+  const totalAmount =
+    (parseFloat(quantity) || 0) * (parseFloat(pricePerKg) || 0);
+  const totalCost = selectedProduct
+    ? (parseFloat(quantity) || 0) * parseFloat(selectedProduct.purchasePrice)
+    : 0;
   const profit = totalAmount - totalCost;
 
   const recordSaleMutation = useMutation({
@@ -133,7 +149,7 @@ export default function RecordSale() {
               </Button>
             </Link>
           </div>
-          
+
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
               <FormField
@@ -142,7 +158,10 @@ export default function RecordSale() {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Mahsulotni tanlang</FormLabel>
-                    <Select onValueChange={field.onChange} defaultValue={field.value}>
+                    <Select
+                      onValueChange={field.onChange}
+                      defaultValue={field.value}
+                    >
                       <FormControl>
                         <SelectTrigger data-testid="select-product">
                           <SelectValue placeholder="Mahsulotni tanlang..." />
@@ -151,7 +170,8 @@ export default function RecordSale() {
                       <SelectContent>
                         {products?.map((product) => (
                           <SelectItem key={product.id} value={product.id}>
-                            {product.name} - ${product.sellingPrice}/kg ({product.stock}kg available)
+                            {product.name} - ${product.sellingPrice}/kg (
+                            {product.stock}kg available)
                           </SelectItem>
                         ))}
                       </SelectContent>
@@ -160,7 +180,7 @@ export default function RecordSale() {
                   </FormItem>
                 )}
               />
-              
+
               <div className="grid grid-cols-2 gap-4">
                 <FormField
                   control={form.control}
@@ -181,7 +201,7 @@ export default function RecordSale() {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="pricePerKg"
@@ -190,15 +210,16 @@ export default function RecordSale() {
                       <FormLabel>Sotish narxi (1 kg uchun)</FormLabel>
                       <FormControl>
                         <div className="relative">
-                          <span className="absolute left-3 top-3 text-gray-500">$</span>
                           <Input
                             data-testid="input-sale-price"
                             type="number"
                             step="0.01"
                             placeholder="0.00"
-                            className="pl-8"
                             {...field}
                           />
+                          <span className="absolute left-2/3 top-2 text-gray-500">
+                            so'm
+                          </span>
                         </div>
                       </FormControl>
                       <FormMessage />
@@ -206,29 +227,44 @@ export default function RecordSale() {
                   )}
                 />
               </div>
-              
+
               {/* Sale Summary */}
               <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-lg p-4 space-y-2">
                 <div className="flex justify-between items-center">
-                  <span className="text-blue-800 dark:text-blue-300">Jami sotish narxi:</span>
-                  <span className="text-blue-600 dark:text-blue-400 font-bold" data-testid="text-total-amount">
-                    ${totalAmount.toFixed(2)}
+                  <span className="text-blue-800 dark:text-blue-300">
+                    Jami sotish narxi:
+                  </span>
+                  <span
+                    className="text-blue-600 dark:text-blue-400 font-bold"
+                    data-testid="text-total-amount"
+                  >
+                    {totalAmount.toFixed(2)} so'm
                   </span>
                 </div>
                 <div className="flex justify-between items-center">
-                  <span className="text-blue-800 dark:text-blue-300">Xarajat:</span>
-                  <span className="text-blue-600 dark:text-blue-400" data-testid="text-total-cost">
-                    ${totalCost.toFixed(2)}
+                  <span className="text-blue-800 dark:text-blue-300">
+                    Xarajat:
+                  </span>
+                  <span
+                    className="text-blue-600 dark:text-blue-400"
+                    data-testid="text-total-cost"
+                  >
+                    {totalCost.toFixed(3)} so'm
                   </span>
                 </div>
                 <div className="border-t border-blue-200 dark:border-blue-800 pt-2 flex justify-between items-center">
-                  <span className="text-blue-800 dark:text-blue-300 font-semibold">Sof foyda:</span>
-                  <span className="text-profit font-bold text-lg" data-testid="text-sale-profit">
-                    ${profit.toFixed(2)}
+                  <span className="text-blue-800 dark:text-blue-300 font-semibold">
+                    Sof foyda:
+                  </span>
+                  <span
+                    className="text-profit font-bold text-lg"
+                    data-testid="text-sale-profit"
+                  >
+                    {profit.toFixed(3)} so'm
                   </span>
                 </div>
               </div>
-              
+
               <Button
                 type="submit"
                 data-testid="button-record-sale"

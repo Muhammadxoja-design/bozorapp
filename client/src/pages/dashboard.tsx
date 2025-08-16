@@ -28,18 +28,18 @@ export default function Dashboard() {
           <div>
             <p className="text-blue-100 text-sm font-medium">Today's Profit</p>
             <p className="text-2xl font-bold" data-testid="text-daily-profit">
-              ${stats?.dailyProfit || '0.00'}
+              {stats?.dailyProfit || '0.00'} so'm
             </p>
           </div>
           <div className="text-right">
             <p className="text-blue-100 text-sm">Sales</p>
             <p className="text-lg font-semibold" data-testid="text-daily-sales">
-              ${stats?.dailySales || '0.00'}
+              {stats?.dailySales || '0.00'} so'm
             </p>
           </div>
         </div>
         <div className="flex justify-between text-blue-100 text-sm">
-          <span>Cost: <span data-testid="text-daily-cost">${stats?.dailyCost || '0.00'}</span></span>
+          <span>Cost: <span data-testid="text-daily-cost">{stats?.dailyCost || '0.00'} so'm</span></span>
           <span>Margin: <span data-testid="text-daily-margin">{stats?.dailyMargin || '0'}%</span></span>
         </div>
       </div>
@@ -52,7 +52,7 @@ export default function Dashboard() {
               <div>
                 <p className="text-sm text-gray-600 dark:text-gray-400">Weekly Profit</p>
                 <p className="text-xl font-bold text-profit" data-testid="text-weekly-profit">
-                  ${stats?.weeklyProfit || '0.00'}
+                  {stats?.weeklyProfit || '0.00'} so'm
                 </p>
               </div>
               <Calendar className="text-profit text-xl" size={24} />
