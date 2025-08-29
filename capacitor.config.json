@@ -1,6 +1,6 @@
 {
   "appId": "com.muhammadrizo.bozor",
   "appName": "Bozor App",
-  "webDir": "dist",
+  "webDir": "dist/public",
   "bundledWebRuntime": false
 }
