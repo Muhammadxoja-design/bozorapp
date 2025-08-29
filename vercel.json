@@ -1,16 +1,8 @@
 {
   "builds": [
-    { "src": "dist/**", "use": "@vercel/static" }
+    { "src": "client/vite.config.ts", "use": "@vercel/static-build" }
   ],
   "routes": [
-    { "src": "/(.*)", "dest": "/dist/$1" }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)\\.js",
-      "headers": [
-        { "key": "Content-Type", "value": "application/javascript" }
-      ]
-    }
+    { "src": "/(.*)", "dest": "/index.html" }
   ]
 }
