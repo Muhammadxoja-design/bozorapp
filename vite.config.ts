@@ -20,7 +20,7 @@ export default defineConfig({
         ]
       : []),
   ],
-  base: "./", 
+  base: "./", // assetlar nisbiy yo‘lda yuklansin
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "client", "src"),
@@ -28,15 +28,9 @@ export default defineConfig({
       "@assets": path.resolve(__dirname, "attached_assets"),
     },
   },
-  root: "client", // index.html shu yerda
+  root: "client",
   build: {
-    outDir: "../dist", // dist loyihaning rootida bo‘ladi
+    outDir: "../dist", // rootda dist/ papka bo‘ladi
     emptyOutDir: true,
-  },
-  server: {
-    fs: {
-      strict: true,
-      deny: ["**/.*"],
-    },
   },
 });
